@@ -5,3 +5,69 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.hamburgerIcon {
+  display: none;
+}
+
+.navigationMenu ul {
+  display: flex;
+  padding: 0;
+}
+
+.navigationMenu li {
+  list-style-type: none;
+  margin: 0 1rem;
+}
+
+.navigationMenu li {
+  margin: 0;
+  border-top: 1px solid #829796;
+  color: #1e3636;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.navigationMenu li a {
+  display: block;
+  color: black;
+  width: 100%;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.navigationMenu li:hover {
+  background-color: #eee;
+}
+
+.navigationMenu__expanded ul {
+  display: block;
+}
+
+@media screen and (max-width: 550px) {
+  .hamburgerIcon {
+    display: block;
+  }
+
+  .navigationMenu {
+    display: none;
+  }
+
+  .navigationMenu__expanded {
+    display: block;
+  }
+
+  .navigationMenu__expanded ul {
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+  }
+}
