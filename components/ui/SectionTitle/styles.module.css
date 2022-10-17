@@ -1,0 +1,13 @@
+.sectionTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  font-style: normal;
+}

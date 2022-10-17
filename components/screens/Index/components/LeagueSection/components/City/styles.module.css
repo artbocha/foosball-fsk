@@ -1,0 +1,32 @@
+.city {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #c3d5d7;
+  padding: 4px 12px 4px 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.city:last-child {
+  border-bottom: none;
+}
+
+.shortName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #6ee2db;
+  color: #fcfff6;
+  border-radius: 4px;
+  width: 64px;
+  font-weight: 700;
+}
+
+.name {
+  color: #252b1e;
+  font-weight: 500;
+  text-decoration: underline;
+}

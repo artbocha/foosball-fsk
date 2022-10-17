@@ -1,0 +1,17 @@
+.table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #C3D5D7;
+  padding: 4px 12px 4px 4px;
+}
+
+.table:last-child {
+  border-bottom: none;
+}
+
+.name {
+  color: #252B1E;
+  font-weight: 500;
+}

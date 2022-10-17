@@ -1,0 +1,9 @@
+/.env
+/.idea
+/.nex
+/.vscode
+/node_modules
+/.next
+
+next-env.d.ts
+dist
