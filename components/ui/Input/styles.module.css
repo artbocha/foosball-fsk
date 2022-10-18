@@ -1,0 +1,15 @@
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+  padding: 12px 10px;
+  border: 1px solid #829796;
+  background: #ffffff;
+  width: inherit;
+}
+
+.inputContainer input {
+  width: 100%;
+  border: none;
+}

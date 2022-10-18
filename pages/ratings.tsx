@@ -1,7 +1,7 @@
-import React from "react";
+import RatingPage from "../components/screens/Ratings";
 
-const ratings = () => {
-  return <div>ratings</div>;
+const Ratings = () => {
+  return <RatingPage />;
 };
 
-export default ratings;
+export default Ratings;

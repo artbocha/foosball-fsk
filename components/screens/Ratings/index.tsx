@@ -1,7 +1,12 @@
-import React from "react";
+import Input from "@ui/Input";
+import css from "./styles.module.css";
 
 const Ratings = () => {
-  return <div>Ratings</div>;
+  return (
+    <div className={css.page}>
+      <Input />
+    </div>
+  );
 };
 
 export default Ratings;
