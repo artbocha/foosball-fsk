@@ -1,10 +1,10 @@
 import css from "./styles.module.css";
 
 type Props = {
-  direction: "row" | "column";
+  direction?: "row" | "column";
 };
 
-const Divider = ({direction = "row"}) => {
+const Divider = ({direction = "row"}: Props) => {
   if (direction === "column") {
     return <div className={css.columnDivider} />;
   }
