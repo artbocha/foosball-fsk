@@ -1,0 +1,63 @@
+.evks {
+  color: #526164;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  width: 56px;
+  text-align: right;
+}
+
+.name {
+  width: 132px;
+}
+
+.position {
+  width: 32px;
+}
+
+.rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 18px;
+  width: 64px;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-weight: 700;
+  font-size: 11px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+}
+
+.rank__master {
+  background-color: #6ee2db;
+  color: #252b1e;
+}
+
+.rank__pro {
+  background-color: #456b13;
+  color: #fcfff6;
+}
+
+.rank__semipro {
+  background-color: #384196;
+  color: #fcfff6;
+}
+
+.rank__amateur {
+  background-color: #a72c2c;
+  color: #fcfff6;
+}
+
+.rank__novice {
+  background-color: #ffc700;
+  color: #252b1e;
+}
+
+.rank__beginner {
+  background-color: #526164;
+  color: #526164;
+}

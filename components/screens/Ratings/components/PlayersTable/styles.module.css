@@ -1,0 +1,16 @@
+.table {
+  width: 100%;
+}
+
+.table td {
+  padding: 8px 4px;
+}
+
+.table tr {
+  display: inline-flex;
+  width: 100%;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #e8f5f5;
+}
