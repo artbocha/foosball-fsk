@@ -24,7 +24,6 @@ const Ratings = ({playerStates}: Props) => {
         ? playerStates.filter((p) => p.is_evks_player_active)
         : playerStates;
 
-      console.log("newStates", newStates);
       setStates(newStates);
     },
     [playerStates]
