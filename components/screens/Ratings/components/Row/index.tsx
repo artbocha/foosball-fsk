@@ -18,15 +18,13 @@ type Props = {
 };
 
 const Row = ({state, position}: Props) => {
-  const {player, ratings, evks_rank} = state;
-  const {first_name, last_name} = player;
-  const {EVKS} = ratings;
+  const {player_name, rating, evks_rank} = state;
 
   return (
     <tr>
       <td className={css.position}>{position}</td>
-      <td className={css.name}>{`${first_name} ${last_name}`}</td>
-      <td className={css.evks}>{EVKS}</td>
+      <td className={css.name}>{player_name}</td>
+      <td className={css.evks}>{rating}</td>
       <td>
         <div className={cn(css.rank, RANK_MAP_STYLE[evks_rank])}>
           {evks_rank}

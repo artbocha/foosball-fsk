@@ -12,7 +12,7 @@ const PlayersTable = ({playerStates}: Props) => {
     <table className={css.table} cellSpacing="0" cellPadding="0">
       <tbody>
         {playerStates.map((state, index) => (
-          <Row key={state.player.id} state={state} position={index + 1} />
+          <Row key={state.player_name} state={state} position={index + 1} />
         ))}
       </tbody>
     </table>
