@@ -25,3 +25,9 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USER }}/foosball-fsk-nextjs:latest
+      - name: Build and push webapp
+        uses: docker/build-push-action@v2
+        with:
+          context: ./nginx
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USER }}/foosball-fsk-nginx:latest

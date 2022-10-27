@@ -3,7 +3,11 @@ services:
     build:
       context: .
     restart: on-failure
+  nginx:
+    build:
+      context: ./nginx
+    restart: on-failure
     ports:
-      - 3000:3000
+      - 3000:80
     environment:
-      - WEBAPP_BACKEND_URL=https://new.rtsf.ru
+      - WEBAPP_BACKEND_URL="https://new.rtsf.ru"
