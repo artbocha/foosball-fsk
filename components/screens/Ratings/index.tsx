@@ -15,6 +15,22 @@ const Ratings = ({playerStates}: Props) => {
   const [filteredPlayerStates, setStates] = useState([]);
 
   useEffect(() => {
+    const f = async () => {
+      console.log('axaxa');
+
+      const response = await fetch(
+        `${process.env.WEBAPP_BACKEND_URL}/ratings_state?active_only=true&rating_type=EVKS`
+      );
+      console.log('response', response);
+
+      const data = await response.json();
+      const {player_states} = data;
+      console.log('player_states', player_states);
+    };
+    f();
+    }, []);
+
+  useEffect(() => {
     setStates(playerStates);
   }, [playerStates]);
 
