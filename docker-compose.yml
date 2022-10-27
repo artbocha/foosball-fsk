@@ -1,0 +1,8 @@
+services:
+  foosball-fsk:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: on-failure
+    ports:
+      - 3000:80
