@@ -3,6 +3,8 @@ services:
     build:
       context: .
     restart: on-failure
+    environment:
+      - WEBAPP_BACKEND_URL=${WEBAPP_BACKEND_URL}
   nginx:
     build:
       context: ./nginx
@@ -10,4 +12,4 @@ services:
     ports:
       - 3000:80
     environment:
-      - WEBAPP_BACKEND_URL="https://new.rtsf.ru"
+      - WEBAPP_BACKEND_URL=${WEBAPP_BACKEND_URL}
