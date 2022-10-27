@@ -3,11 +3,7 @@ services:
     image: artbocha/foosball-fsk-nextjs:latest
     pull_policy: always
     restart: on-failure
-  nginx:
-    image: artbocha/foosball-fsk-nginx:latest
-    pull_policy: always
-    restart: on-failure
     ports:
-      - 3000:80
+      - 3000:3000
     environment:
-      - WEBAPP_BACKEND_URL="https://new.rtsf.ru"
+      - WEBAPP_BACKEND_URL=https://new.rtsf.ru
