@@ -19,7 +19,7 @@ const Ratings = ({playerStates}: Props) => {
       console.log('axaxa');
 
       const response = await fetch(
-        `${process.env.WEBAPP_BACKEND_URL}/ratings_state?active_only=true&rating_type=EVKS`
+        '/api/ratings_state?active_only=true&rating_type=EVKS'
       );
       console.log('response', response);
 
