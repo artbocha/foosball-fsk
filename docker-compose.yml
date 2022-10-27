@@ -1,8 +1,11 @@
 services:
-  foosball-fsk:
+  nextjs:
     build:
-      dockerfile: Dockerfile
       context: .
+    restart: on-failure
+  nginx:
+    build:
+      context: ./nginx
     restart: on-failure
     ports:
       - 3000:80

@@ -1,6 +1,6 @@
 # see https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
 
-FROM node:alpine as build
+FROM node:alpine as builder
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
@@ -16,13 +16,24 @@ COPY . .
 RUN npm run build
 
 
-# -------------------- #
-FROM nginx:alpine as run
+#--------------#
+FROM node:alpine
 
-COPY --from=build /app/out /usr/share/nginx/html
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3000
 
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-EXPOSE 80
+WORKDIR /app
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

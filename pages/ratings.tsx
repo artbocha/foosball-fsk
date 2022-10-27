@@ -1,7 +1,7 @@
 import type {PlayerState} from "../types";
 import RatingPage from "../components/screens/Ratings";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const response = await fetch(
     "https://new.rtsf.ru/ratings_state?active_only=true&rating_type=EVKS"
   );
