@@ -1,11 +1,11 @@
 services:
   nextjs:
-    image: artbocha/foosball-fsk-nextjs:latest
-    pull_policy: always
+    build:
+      context: .
     restart: on-failure
   nginx:
-    image: artbocha/foosball-fsk-nginx:latest
-    pull_policy: always
+    build:
+      context: ./nginx
     restart: on-failure
     ports:
       - 3000:80

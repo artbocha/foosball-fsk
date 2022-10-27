@@ -3,7 +3,7 @@ import RatingPage from "../components/screens/Ratings";
 
 export const getServerSideProps = async () => {
   const response = await fetch(
-    "https://new.rtsf.ru/ratings_state?active_only=true&rating_type=EVKS"
+    "/api/ratings_state?active_only=true&rating_type=EVKS"
   );
   const data = await response.json();
   const {player_states} = data;

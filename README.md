@@ -1,0 +1,1 @@
+Run in docker locally: `docker-compose -f docker-compose.build-local.yml up --build`
