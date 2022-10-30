@@ -1,32 +1,39 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {FC, useCallback} from "react";
+import {useRouter} from "next/router";
+
 import Input from "@ui/Input";
 import Switch from "@ui/Switch";
-import type {PlayerState} from "../../../types";
-
+import {usePlayers} from "../../../context/players";
 import PlayersTable from "./components/PlayersTable";
 
 import css from "./styles.module.css";
 
-type Props = {
-  playerStates: PlayerState[];
-};
+const Ratings: FC = () => {
+  const {players, getAndUpdatePlayers} = usePlayers();
+  const router = useRouter();
+  const {query} = router;
+  const {active_only} = query;
 
-const Ratings = ({playerStates}: Props) => {
-  const [filteredPlayerStates, setStates] = useState([]);
-
-  useEffect(() => {
-    setStates(playerStates);
-  }, [playerStates]);
+  const isActiveOnly = active_only === "true";
 
   const toggleActivePlayers = useCallback(
     ({target: {checked}}: React.ChangeEvent<HTMLInputElement>) => {
-      const newStates = checked
-        ? playerStates.filter((p) => p.is_evks_player_active)
-        : playerStates;
+      const newQuery = {...query, active_only: checked};
 
-      setStates(newStates);
+      router.push(
+        {
+          pathname: "/ratings",
+          query: newQuery,
+        },
+        undefined,
+        {
+          shallow: true,
+        }
+      );
+
+      getAndUpdatePlayers(newQuery);
     },
-    [playerStates]
+    [router, query, getAndUpdatePlayers]
   );
 
   const toggleForeignPlayers = useCallback(() => {
@@ -40,9 +47,14 @@ const Ratings = ({playerStates}: Props) => {
         disabled
         onChange={toggleForeignPlayers}
         label="Показывать заморских"
+        value={true}
       />
-      <Switch onChange={toggleActivePlayers} label="Показывать пассивных" />
-      <PlayersTable playerStates={filteredPlayerStates} />
+      <Switch
+        onChange={toggleActivePlayers}
+        label="Показывать пассивных"
+        value={isActiveOnly}
+      />
+      <PlayersTable playerStates={players} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import {FC, useCallback, useState} from "react";
 import cn from "classnames";
 
 import SliderItem from "./components/SliderItem";
@@ -9,7 +9,7 @@ type Props = {
   slides: Slides[];
 };
 
-const Slider = ({slides}: Props) => {
+const Slider: FC<Props> = ({slides}) => {
   const [currentIndex, setIndex] = useState(0);
 
   const moveLeft = useCallback(() => {

@@ -1,4 +1,6 @@
+import {FC} from "react";
 import cn from "classnames";
+
 import type {PlayerState} from "../../../../../types";
 
 import css from "./styles.module.css";
@@ -17,7 +19,7 @@ type Props = {
   position: number;
 };
 
-const Row = ({state, position}: Props) => {
+const Row: FC<Props> = ({state, position}) => {
   const {player_name, rating, evks_rank} = state;
 
   return (

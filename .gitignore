@@ -8,3 +8,6 @@
 next-env.d.ts
 dist
 out
+
+.env.local
+backend/docker-compose.yml

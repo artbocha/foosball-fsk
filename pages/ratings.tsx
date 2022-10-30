@@ -1,14 +1,14 @@
+import {useEffect} from "react";
+
+import {fetchPlayers} from "api";
 import type {PlayerState} from "../types";
 import RatingPage from "../components/screens/Ratings";
+import {PlayersProvider, usePlayers} from "../context/players";
 
-export const getServerSideProps = async () => {
-  const response = await fetch(
-    `${process.env.WEBAPP_BACKEND_URL}/ratings_state?active_only=true&rating_type=EVKS`
-  );
-  const data = await response.json();
-  const {player_states} = data;
+export const getServerSideProps = async ({query}) => {
+  const players = await fetchPlayers(query);
 
-  if (!player_states) {
+  if (!players) {
     return {
       notFound: true,
     };
@@ -16,7 +16,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      playerStates: player_states,
+      playerStates: players,
     },
   };
 };
@@ -26,7 +26,17 @@ type Props = {
 };
 
 const Ratings = ({playerStates}: Props) => {
-  return <RatingPage playerStates={playerStates} />;
+  const {setPlayers} = usePlayers();
+
+  useEffect(() => {
+    setPlayers(playerStates);
+  }, [playerStates, setPlayers]);
+
+  return <RatingPage />;
 };
+
+Ratings.getContextProvider = (page) => (
+  <PlayersProvider>{page}</PlayersProvider>
+);
 
 export default Ratings;

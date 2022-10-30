@@ -1,3 +1,4 @@
+import {FC} from "react";
 import css from "./styles.module.css";
 import type {City} from "./types";
 
@@ -5,7 +6,7 @@ type Props = {
   city: City;
 };
 
-const CityItem = ({city}: Props) => {
+const CityItem: FC<Props> = ({city}) => {
   const {key, name, url} = city;
 
   return (

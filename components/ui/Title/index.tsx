@@ -1,10 +1,11 @@
+import {FC} from "react";
 import css from "./styles.module.css";
 
 type Props = {
   text: string;
 };
 
-const Title = ({text}: Props) => {
+const Title: FC<Props> = ({text}) => {
   return <h1 className={css.title}>{text}</h1>;
 };
 

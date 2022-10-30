@@ -1,3 +1,5 @@
+import {FC} from "react";
+
 import Row from "../Row";
 import css from "./styles.module.css";
 
@@ -7,7 +9,7 @@ type Props = {
   playerStates: PlayerState[];
 };
 
-const PlayersTable = ({playerStates}: Props) => {
+const PlayersTable: FC<Props> = ({playerStates}) => {
   return (
     <table className={css.table} cellSpacing="0" cellPadding="0">
       <tbody>
