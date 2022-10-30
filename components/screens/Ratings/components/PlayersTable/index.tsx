@@ -14,7 +14,7 @@ const PlayersTable: FC<Props> = ({playerStates}) => {
     <table className={css.table} cellSpacing="0" cellPadding="0">
       <tbody>
         {playerStates.map((state, index) => (
-          <Row key={state.player_name} state={state} position={index + 1} />
+          <Row key={state.player_id} state={state} position={index + 1} />
         ))}
       </tbody>
     </table>

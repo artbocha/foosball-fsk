@@ -14,11 +14,11 @@ const Ratings: FC = () => {
   const {query} = router;
   const {active_only} = query;
 
-  const isActiveOnly = active_only === "true";
+  const isActiveOnly = active_only !== "false";
 
   const toggleActivePlayers = useCallback(
     ({target: {checked}}: React.ChangeEvent<HTMLInputElement>) => {
-      const newQuery = {...query, active_only: checked};
+      const newQuery = {...query, active_only: !checked};
 
       router.push(
         {
@@ -47,12 +47,12 @@ const Ratings: FC = () => {
         disabled
         onChange={toggleForeignPlayers}
         label="Показывать заморских"
-        value={true}
+        value={false}
       />
       <Switch
         onChange={toggleActivePlayers}
         label="Показывать пассивных"
-        value={isActiveOnly}
+        value={!isActiveOnly}
       />
       <PlayersTable playerStates={players} />
     </div>

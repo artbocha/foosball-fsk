@@ -1,7 +1,7 @@
 import type {ParsedUrlQuery} from "querystring";
 
 export const fetchPlayers = async ({
-  active_only = "false",
+  active_only = "true",
   rating_type = "EVKS",
 }: ParsedUrlQuery) => {
   const queryStr = `?active_only=${active_only}&rating_type=${rating_type}`;
