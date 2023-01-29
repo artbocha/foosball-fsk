@@ -5,3 +5,12 @@ export type PlayerState = {
   rating: number;
   player_id: number;
 };
+
+export type PlayerCompetition = {
+  id: number;
+  start_datetime: string;
+  end_datetime: string;
+  cumulative_coefficient: number;
+  evks_importance_coefficient: number;
+  competition_type: string;
+};

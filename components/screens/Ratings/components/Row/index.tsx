@@ -1,5 +1,6 @@
 import {FC} from "react";
 import cn from "classnames";
+import Link from "next/link";
 
 import type {PlayerState} from "../../../../../types";
 
@@ -20,12 +21,19 @@ type Props = {
 };
 
 const Row: FC<Props> = ({state, position}) => {
-  const {player_name, rating, evks_rank} = state;
+  const {player_name, rating, evks_rank, player_id} = state;
+
+  // I'll just keep it here for now, f**k jsx..
+  // <Link href={`/player/${player_id}/competitions`}>*/
 
   return (
     <tr>
       <td className={css.position}>{position}</td>
-      <td className={css.name}>{player_name}</td>
+      <td className={css.name}>
+        <Link href="/playerCompetitions">
+          <a>{player_name}</a>
+        </Link>
+      </td>
       <td className={css.evks}>{rating}</td>
       <td>
         <div className={cn(css.rank, RANK_MAP_STYLE[evks_rank])}>
